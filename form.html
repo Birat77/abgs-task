@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <h2>Select your Device:</h2>
+    <div class="device">
+      <label for="mobile">Mobile</label>
+      <input
+        type="radio"
+        name="type"
+        value="mobile"
+        id="mobile"
+        onchange="populate(this.id,'select')"
+      />
+      <label for="laptop">PC/Laptop</label>
+      <input
+        type="radio"
+        name="type"
+        value="laptop"
+        id="laptop"
+        onchange="populate(this.id,'select')"
+      />
+      <label for="tablet">Tablet</label>
+      <input
+        type="radio"
+        name="type"
+        value="laptop"
+        id="tablet"
+        onchange="populate(this.id,'select')"
+      />
+    </div>
+
+    <div class="dropdown">
+      <select name="selectType" id="select">
+        <option selected disabled>Operating System Used</option>
+      </select>
+    </div>
+
+    <script>
+      function populate(s1, s2) {
+        var s1 = document.getElementById(s1);
+        var s2 = document.getElementById(s2);
+        console.log(s2, s1);
+        s2.innerHTML =
+          "<option selected disabled>Operating System Used</option>";
+        var optionArray = [];
+
+        if (s1.value == "mobile") {
+          optionArray = ["android|Android", "iOS|iOS"];
+          optionArray.forEach(data => {
+            generateOption(data, s2);
+          });
+        } else if (s1.value == "laptop") {
+          optionArray = ["linux|Linux", "windows|Windows"];
+          optionArray.forEach(data => {
+            generateOption(data, s2);
+          });
+        } else if (s1.value == "tablet") {
+          optionArray = ["android|Android", "tabOS|tabOS"];
+          optionArray.forEach(data => {
+            generateOption(data, s2);
+          });
+        }
+      }
+      function generateOption(data, s2) {
+        var pair = data.split("|");
+        var newoption = document.createElement("option");
+        newoption.value = pair[0];
+        newoption.innerHTML = pair[1];
+        s2.appendChild(newoption);
+      }
+    </script>
+  </body>
+</html>

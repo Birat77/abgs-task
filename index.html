@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curved Corner Button</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+      * {
+        margin: 20;
+        padding: 20;
+        color: white;
+      }
+      button {
+        margin: auto;
+        background-color: red;
+        height: 40px;
+        width: 80px;
+        border-top-right-radius: 25px;
+        border-bottom-left-radius: 25px;
+        border-style: none;
+        display: block;
+      }
+      .clicked {
+        background-color: blue;
+      }
+      div {
+        width: 50px;
+        height: 100px;
+        background-color: red;
+        border-radius: 5%;
+        border-style: none;
+      }
+      .transform {
+        margin-top: 200;
+        padding: 20;
+        background: blue;
+        color: white;
+        transform: rotate(-90deg);
+        transition: none;
+        transform-origin: top left;
+        transform-style: preserve-3D;
+      }
+    </style>
+  </head>
+  <body>
+    <button>Button</button>
+    <div>Hello World!</div>
+    <script>
+      var toogle = true;
+      $("button").click(function() {
+        if (toogle) {
+          $("div").toggleClass("transform");
+          $("button").toggleClass("clicked");
+        }
+      });
+    </script>
+  </body>
+</html>
